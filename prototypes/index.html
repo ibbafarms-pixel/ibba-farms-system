@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBBA Farms - Prototypes Index</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: #f9fafb;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+        .subtitle {
+            color: #6b7280;
+            font-size: 16px;
+            margin-bottom: 2rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        .card:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+        .card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            font-size: 24px;
+        }
+        .card:nth-child(2) .card-header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        .card:nth-child(3) .card-header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        .card:nth-child(4) .card-header {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+        .card-content {
+            padding: 1.5rem;
+        }
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+        .card-description {
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+        .card-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        .card-features li {
+            color: #6b7280;
+            font-size: 13px;
+            margin-bottom: 0.5rem;
+            padding-left: 20px;
+            position: relative;
+        }
+        .card-features li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+        .card-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #2563eb;
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .card-button:hover {
+            background: #1d4ed8;
+            transform: scale(1.05);
+        }
+        .info-box {
+            background: #dbeafe;
+            border-left: 4px solid #2563eb;
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin-bottom: 2rem;
+        }
+        .info-title {
+            font-weight: 600;
+            color: #0c2d6b;
+            margin-bottom: 0.5rem;
+        }
+        .info-text {
+            color: #0c2d6b;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🐔 IBBA Farms Management System - UI Prototypes</h1>
+        <p class="subtitle">Interactive mockups showing the system interface</p>
+        
+        <div class="info-box">
+            <div class="info-title">ℹ️ About These Prototypes</div>
+            <div class="info-text">
+                These are interactive HTML mockups showing what the IBBA Farms Management System will look like. 
+                Click on any card below to view the prototype. All data shown is sample data for demonstration purposes.
+            </div>
+        </div>
+        
+        <div class="grid">
+            <!-- Login Page -->
+            <div class="card">
+                <div class="card-header">🔐</div>
+                <div class="card-content">
+                    <div class="card-title">Login Page</div>
+                    <div class="card-description">User authentication with email and password</div>
+                    <ul class="card-features">
+                        <li>Email/Password login</li>
+                        <li>Remember me option</li>
+                        <li>Secure JWT authentication</li>
+                        <li>Password validation</li>
+                        <li>Demo credentials provided</li>
+                    </ul>
+                    <a href="01-login.html" target="_blank" class="card-button">View Prototype →</a>
+                </div>
+            </div>
+            
+            <!-- Dashboard -->
+            <div class="card">
+                <div class="card-header">📊</div>
+                <div class="card-content">
+                    <div class="card-title">Dashboard</div>
+                    <div class="card-description">Daily overview with key metrics and charts</div>
+                    <ul class="card-features">
+                        <li>Today's production summary</li>
+                        <li>Revenue tracking</li>
+                        <li>Daily profit display</li>
+                        <li>Current bird count</li>
+                        <li>Feed inventory status</li>
+                        <li>Trend charts (7-day)</li>
+                    </ul>
+                    <a href="02-dashboard.html" target="_blank" class="card-button">View Prototype →</a>
+                </div>
+            </div>
+            
+            <!-- Production Recording -->
+            <div class="card">
+                <div class="card-header">📈</div>
+                <div class="card-content">
+                    <div class="card-title">Production Recording</div>
+                    <div class="card-description">Record daily egg production data</div>
+                    <ul class="card-features">
+                        <li>Date and house selection</li>
+                        <li>Bird count tracking</li>
+                        <li>Eggs collected/broken/cracked</li>
+                        <li>Mortality tracking</li>
+                        <li>Feed consumption logging</li>
+                        <li>Auto-calculated production %</li>
+                    </ul>
+                    <a href="03-production.html" target="_blank" class="card-button">View Prototype →</a>
+                </div>
+            </div>
+            
+            <!-- Sales Management -->
+            <div class="card">
+                <div class="card-header">🛒</div>
+                <div class="card-content">
+                    <div class="card-title">Sales Management</div>
+                    <div class="card-description">Track egg sales and customer transactions</div>
+                    <ul class="card-features">
+                        <li>Customer sales records</li>
+                        <li>Revenue tracking</li>
+                        <li>Payment status management</li>
+                        <li>Sales summary cards</li>
+                        <li>Search and filter</li>
+                        <li>Edit/Delete actions</li>
+                    </ul>
+                    <a href="04-sales.html" target="_blank" class="card-button">View Prototype ��</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-box">
+            <div class="info-title">🎨 Design Philosophy</div>
+            <div class="info-text">
+                <strong>Clean & Simple:</strong> The interface focuses on clarity and ease of use.<br>
+                <strong>Responsive:</strong> Works on desktop, tablet, and mobile devices.<br>
+                <strong>Consistent:</strong> Unified color scheme and component styling across all pages.<br>
+                <strong>Accessible:</strong> Clear labels, good color contrast, and keyboard navigation support.
+            </div>
+        </div>
+        
+        <div class="info-box">
+            <div class="info-title">📝 More Screens Coming</div>
+            <div class="info-text">
+                Phase 1 will also include: Expense Recording, Feed Inventory, and Reports pages.<br>
+                Later phases will add: Accounting module, Customer management, and Advanced analytics.
+            </div>
+        </div>
+    </div>
+</body>
+</html>

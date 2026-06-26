@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBBA Farms - Production Recording</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: #f9fafb;
+        }
+        .header {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2563eb;
+        }
+        .container {
+            display: flex;
+            height: calc(100vh - 60px);
+        }
+        .sidebar {
+            width: 250px;
+            background: white;
+            box-shadow: 1px 0 3px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+        .sidebar-item {
+            padding: 12px 20px;
+            color: #6b7280;
+            border-left: 3px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .sidebar-item.active {
+            background: #dbeafe;
+            color: #2563eb;
+            border-left-color: #2563eb;
+        }
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+        h1 {
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+        .page-subtitle {
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 2rem;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #1f2937;
+            font-size: 14px;
+        }
+        input, select, textarea {
+            padding: 12px;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .btn {
+            padding: 12px 24px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+            font-size: 14px;
+        }
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+        .btn-secondary {
+            background: #e5e7eb;
+            color: #1f2937;
+        }
+        .btn-secondary:hover {
+            background: #d1d5db;
+        }
+        .info-box {
+            background: #dbeafe;
+            border-left: 4px solid #2563eb;
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+            font-size: 13px;
+            color: #0c2d6b;
+        }
+        @media (max-width: 768px) {
+            .form-grid,
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .btn-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-logo">🐔 IBBA Farms</div>
+    </div>
+    
+    <div class="container">
+        <div class="sidebar">
+            <div class="sidebar-item">📊 Dashboard</div>
+            <div class="sidebar-item active">📈 Production</div>
+            <div class="sidebar-item">🛒 Sales</div>
+            <div class="sidebar-item">💰 Expenses</div>
+            <div class="sidebar-item">🌾 Feed</div>
+            <div class="sidebar-item">📋 Reports</div>
+        </div>
+        
+        <div class="main-content">
+            <h1>Record Production</h1>
+            <p class="page-subtitle">Enter daily egg production data</p>
+            
+            <div class="card">
+                <div class="info-box">
+                    ℹ️ Fill in the production details for each house. Production percentage will be calculated automatically.
+                </div>
+                
+                <form>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="date">Date *</label>
+                            <input type="date" id="date" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="house">House *</label>
+                            <select id="house" required>
+                                <option value="">Select house...</option>
+                                <option value="layer1">Layer 1</option>
+                                <option value="layer2">Layer 2</option>
+                                <option value="layer3">Layer 3</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 1.5rem; margin-bottom: 1rem; color: #1f2937; font-size: 16px;">🐓 Bird Count</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="birds">Number of Birds *</label>
+                            <input type="number" id="birds" placeholder="e.g., 1200" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mortality">Mortality</label>
+                            <input type="number" id="mortality" placeholder="0" value="0">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="culled">Birds Culled</label>
+                            <input type="number" id="culled" placeholder="0" value="0">
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 1.5rem; margin-bottom: 1rem; color: #1f2937; font-size: 16px;">🥚 Egg Production</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="collected">Eggs Collected *</label>
+                            <input type="number" id="collected" placeholder="e.g., 1120" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="broken">Broken Eggs</label>
+                            <input type="number" id="broken" placeholder="0" value="0">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="cracked">Cracked Eggs</label>
+                            <input type="number" id="cracked" placeholder="0" value="0">
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 1.5rem; margin-bottom: 1rem; color: #1f2937; font-size: 16px;">🌾 Resources</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="feed">Feed Used (kg) *</label>
+                            <input type="number" id="feed" placeholder="e.g., 145.5" step="0.1" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="water">Water Consumption (liters)</label>
+                            <input type="number" id="water" placeholder="0" value="0">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" style="margin-top: 1rem;">
+                        <label for="notes">Notes</label>
+                        <textarea id="notes" rows="3" placeholder="Any additional notes..."></textarea>
+                    </div>
+                    
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-primary">✓ Save Production</button>
+                        <button type="reset" class="btn btn-secondary">Clear Form</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

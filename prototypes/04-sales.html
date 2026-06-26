@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBBA Farms - Sales</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: #f9fafb;
+        }
+        .header {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2563eb;
+        }
+        .container {
+            display: flex;
+            height: calc(100vh - 60px);
+        }
+        .sidebar {
+            width: 250px;
+            background: white;
+            box-shadow: 1px 0 3px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+        .sidebar-item {
+            padding: 12px 20px;
+            color: #6b7280;
+            border-left: 3px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .sidebar-item.active {
+            background: #dbeafe;
+            color: #2563eb;
+            border-left-color: #2563eb;
+        }
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+        h1 {
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+        .page-subtitle {
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 2rem;
+        }
+        .controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .btn {
+            padding: 10px 20px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+        .table-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th {
+            background: #f3f4f6;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: #1f2937;
+            font-size: 13px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 14px;
+        }
+        tr:hover {
+            background: #f9fafb;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .badge-paid {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        .badge-pending {
+            background: #fef3c7;
+            color: #78350f;
+        }
+        .action-links {
+            display: flex;
+            gap: 1rem;
+        }
+        .action-links a {
+            color: #2563eb;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        .action-links a:hover {
+            text-decoration: underline;
+        }
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .summary-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .summary-label {
+            color: #6b7280;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        .summary-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1f2937;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+            table {
+                font-size: 12px;
+            }
+            th, td {
+                padding: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-logo">🐔 IBBA Farms</div>
+    </div>
+    
+    <div class="container">
+        <div class="sidebar">
+            <div class="sidebar-item">📊 Dashboard</div>
+            <div class="sidebar-item">📈 Production</div>
+            <div class="sidebar-item active">🛒 Sales</div>
+            <div class="sidebar-item">💰 Expenses</div>
+            <div class="sidebar-item">🌾 Feed</div>
+            <div class="sidebar-item">📋 Reports</div>
+        </div>
+        
+        <div class="main-content">
+            <h1>Sales Management</h1>
+            <p class="page-subtitle">Track egg sales and customer transactions</p>
+            
+            <!-- Summary Cards -->
+            <div class="summary-cards">
+                <div class="summary-card">
+                    <div class="summary-label">Total Revenue (RWF)</div>
+                    <div class="summary-value">1,500,000</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-label">Paid Amount (RWF)</div>
+                    <div class="summary-value">1,350,000</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-label">Outstanding (RWF)</div>
+                    <div class="summary-value">150,000</div>
+                </div>
+            </div>
+            
+            <!-- Controls -->
+            <div class="controls">
+                <button class="btn btn-primary">+ New Sale</button>
+                <input type="text" placeholder="Search sales..." style="padding: 10px 15px; border: 1px solid #e5e7eb; border-radius: 6px; flex: 1; max-width: 300px;">
+            </div>
+            
+            <!-- Sales Table -->
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Customer</th>
+                            <th>Trays</th>
+                            <th>Total Eggs</th>
+                            <th>Price/Unit</th>
+                            <th>Total Revenue</th>
+                            <th>Payment</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2026-06-26</td>
+                            <td>John Mutebi</td>
+                            <td>32</td>
+                            <td>960</td>
+                            <td>4,500</td>
+                            <td>4,320,000</td>
+                            <td>Cash</td>
+                            <td><span class="badge badge-paid">Paid</span></td>
+                            <td><div class="action-links"><a>Edit</a><a>Delete</a></div></td>
+                        </tr>
+                        <tr>
+                            <td>2026-06-26</td>
+                            <td>Market Kigali</td>
+                            <td>50</td>
+                            <td>1,500</td>
+                            <td>4,500</td>
+                            <td>6,750,000</td>
+                            <td>Mobile Money</td>
+                            <td><span class="badge badge-paid">Paid</span></td>
+                            <td><div class="action-links"><a>Edit</a><a>Delete</a></div></td>
+                        </tr>
+                        <tr>
+                            <td>2026-06-25</td>
+                            <td>Restaurant ABC</td>
+                            <td>20</td>
+                            <td>600</td>
+                            <td>4,500</td>
+                            <td>2,700,000</td>
+                            <td>Check</td>
+                            <td><span class="badge badge-pending">Pending</span></td>
+                            <td><div class="action-links"><a>Edit</a><a>Delete</a></div></td>
+                        </tr>
+                        <tr>
+                            <td>2026-06-25</td>
+                            <td>Peter Uwizeye</td>
+                            <td>15</td>
+                            <td>450</td>
+                            <td>4,500</td>
+                            <td>2,025,000</td>
+                            <td>Credit</td>
+                            <td><span class="badge badge-pending">Pending</span></td>
+                            <td><div class="action-links"><a>Edit</a><a>Delete</a></div></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
